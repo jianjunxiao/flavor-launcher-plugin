@@ -1,2 +1,3 @@
 include ':app'
+include ':flavor-launcher-plugin'
 rootProject.name = "flavorlauncherplugin"
