@@ -31,7 +31,7 @@ class PluginImpl implements Plugin<Project> {
                     }
                     Task clean = project.tasks["clean"]
                     Task assemble = project.tasks["assemble${variant.name.capitalize()}"]
-                    assemble.dependsOn(gfl, clean)
+                    assemble.dependsOn(clean, gfl)
                 }
             }
         }
