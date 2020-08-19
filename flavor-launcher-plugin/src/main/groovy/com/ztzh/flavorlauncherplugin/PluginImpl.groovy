@@ -29,7 +29,9 @@ class PluginImpl implements Plugin<Project> {
                     Task gfl = project.task(taskName).doLast {
                         generateLauncher(rootDir, flavor, waterMask, extension)
                     }
-                    project.tasks["assemble${variant.name.capitalize()}"].dependsOn(gfl)
+                    Task clean = project.tasks["clean"]
+                    Task assemble = project.tasks["assemble${variant.name.capitalize()}"]
+                    assemble.dependsOn(gfl, clean)
                 }
             }
         }
