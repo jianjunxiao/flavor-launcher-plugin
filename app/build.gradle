@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-//apply from: "../generate-flavor-launcher.gradle"
+apply from: "../generate-flavor-launcher.gradle"
 
 android {
 
@@ -44,6 +44,14 @@ android {
             }
         }
 
+        // grayscale
+        grayscale {
+            applicationId "com.ztzh.flavorlauncherplugin3"
+            dimension "environment"
+            ext {
+                label = "灰度"
+            }
+        }
     }
 }
 

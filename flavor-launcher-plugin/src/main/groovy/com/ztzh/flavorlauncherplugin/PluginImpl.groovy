@@ -24,7 +24,8 @@ class PluginImpl implements Plugin<Project> {
                     String rootDir = variant.outputs.first().outputFile.parent.split("build").first()
                     String flavor = variant.productFlavors[0].name
                     String waterMask = variant.productFlavors[0].ext.label + variant.versionName
-                    if (flavor != extension.except) {
+                    String buildType = variant.buildType
+                    if (flavor != extension.except && buildType == "release") {
                         generateLauncher(rootDir, flavor, waterMask, extension)
                     }
                 }
