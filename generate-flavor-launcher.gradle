@@ -1,0 +1,7 @@
+apply plugin: 'generate-flavor-launcher'
+
+flavorLauncherConfig {
+    launcherPath = "src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    launcherRoundPath = "src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    except = "production"
+}

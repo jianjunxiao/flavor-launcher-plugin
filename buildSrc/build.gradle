@@ -1,0 +1,14 @@
+apply plugin: 'java-library'
+apply plugin: 'groovy'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', includes: ['*.jar'])
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation group: 'net.coobird', name: 'thumbnailator', version: '0.4.12'
+}
