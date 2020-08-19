@@ -19,21 +19,31 @@ class PluginImpl implements Plugin<Project> {
     void apply(Project project) {
         PluginExtension extension = project.extensions.create("flavorLauncherConfig", PluginExtension)
         if (project.android.hasProperty("applicationVariants")) {
-            project.android.applicationVariants.all { variant ->
-                String rootDir = variant.outputs.first().outputFile.parent.split("build").first()
-                String flavor = variant.productFlavors[0].name
-                String waterMask = variant.productFlavors[0].ext.label + variant.versionName
-                if (flavor != extension.except) {
-                    String taskName = "generateFlavorLauncher" + variant.name.capitalize()
-                    println("======GenerateFlavorLauncher======: Task -> $taskName")
-                    Task gfl = project.task(taskName).doLast {
+            project.task("generateFlavorLauncher").doLast {
+                project.android.applicationVariants.all { variant ->
+                    String rootDir = variant.outputs.first().outputFile.parent.split("build").first()
+                    String flavor = variant.productFlavors[0].name
+                    String waterMask = variant.productFlavors[0].ext.label + variant.versionName
+                    if (flavor != extension.except) {
                         generateLauncher(rootDir, flavor, waterMask, extension)
                     }
-                    Task clean = project.tasks["clean"]
-                    Task assemble = project.tasks["assemble${variant.name.capitalize()}"]
-                    assemble.dependsOn(clean, gfl)
                 }
             }
+//            project.android.applicationVariants.all { variant ->
+//                String rootDir = variant.outputs.first().outputFile.parent.split("build").first()
+//                String flavor = variant.productFlavors[0].name
+//                String waterMask = variant.productFlavors[0].ext.label + variant.versionName
+//                if (flavor != extension.except) {
+//                    String taskName = "generateFlavorLauncher" + variant.name.capitalize()
+//                    println("======GenerateFlavorLauncher======: Task -> $taskName")
+//                    Task gfl = project.task(taskName).doLast {
+//                        generateLauncher(rootDir, flavor, waterMask, extension)
+//                    }
+//                    Task clean = project.tasks["clean"]
+//                    Task assemble = project.tasks["assemble${variant.name.capitalize()}"]
+//                    assemble.dependsOn(clean, gfl)
+//                }
+//            }
         }
     }
 
