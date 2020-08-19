@@ -15,3 +15,12 @@
 
 # Project exclude paths
 /buildSrc/build/
+/flavor-launcher-plugin/build/libs/buildSrc.jar
+/flavor-launcher-plugin/build/resources/main/META-INF/gradle-plugins/generate-flavor-launcher.properties
+/flavor-launcher-plugin/build/tmp/jar/MANIFEST.MF
+/flavor-launcher-plugin/build/classes/groovy/main/com/ztzh/flavorlauncherplugin/PluginExtension.class
+/flavor-launcher-plugin/build/classes/groovy/main/com/ztzh/flavorlauncherplugin/PluginImpl$_apply_closure1$_closure3.class
+/flavor-launcher-plugin/build/classes/groovy/main/com/ztzh/flavorlauncherplugin/PluginImpl$_apply_closure1.class
+/flavor-launcher-plugin/build/classes/groovy/main/com/ztzh/flavorlauncherplugin/PluginImpl$_generateLauncher_closure2$_closure4.class
+/flavor-launcher-plugin/build/classes/groovy/main/com/ztzh/flavorlauncherplugin/PluginImpl$_generateLauncher_closure2.class
+/flavor-launcher-plugin/build/classes/groovy/main/com/ztzh/flavorlauncherplugin/PluginImpl.class
